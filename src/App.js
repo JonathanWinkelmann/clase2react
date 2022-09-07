@@ -1,25 +1,28 @@
-import "./App.css";
+import './App.css';
+import NavBar from './components/NavBar';
+import ItemslistContainer from './containers/ItemslistContainer';
+import Ad from './components/Ad';
 
 
 function App() {
-  
-  let numeroDeClase = 40;
-  
-  
+
+  const categorias = ["Electronics", "Audio & Video", "Clothing"]
+
+  const temperatura = 18;
+
   return (
-    <div className="App">
-      <p style={
-        {
-            color: "salmon",
-            paddimgtop: '18px',
-        }
-      }>
-      Bienvenidos a la clase {numeroDeClase}!
-      </p>
-      <br/>
-      <input placeholder="Ingrese algun contenido"/>
-    </div>
+    <>
+      <NavBar categories={categorias} 
+      temp={temperatura} 
+      />
+      <ItemslistContainer greeting={"Hola bienvenido a nuestra app"} />
+      <Ad>
+        <h1>Titulo del Ad</h1>
+        <span>un anuncio muy molesto</span>
+      </Ad>
+    </> 
   );
 }
 
 export default App;
+
