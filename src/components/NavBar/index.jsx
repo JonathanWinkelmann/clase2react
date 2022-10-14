@@ -10,8 +10,8 @@ const NavBar= () => {
 
     //Nombre del estado, settNombreDelEstado//
     const [navColor, setNavColor] = useState("#f3f3f3")
-    
-
+    //Consumimos el context desde la NavBar
+    //const value = useContext(Shop)
 
     const onChangeColor = (event) => {
         const color = event.target.value;
@@ -42,6 +42,7 @@ const NavBar= () => {
                 <Link to="/category/jewelery">Jewelery</Link>
             </li>
             <CartWidget/>
+            {/*<span>{value.mensaje}</span>*/}
             <Select handleColor={onChangeColor}/>
         </ul>
     );

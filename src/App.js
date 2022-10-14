@@ -8,6 +8,7 @@ import {
   Routes,
 } from "react-router-dom";
 import NotFound from './components/NotFound';
+import ShopProvider from './context/ShopProvider';
 
 function App() {
 
@@ -15,16 +16,18 @@ function App() {
 
 
   return (
-    <BrowserRouter>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<ItemslistContainer/>}/>
-        <Route patch="/category/:categoryId" element={<ItemslistContainer/>}/>
-        <Route path="/detail/:productId" element={<ItemDetailistContainer/>}/>
-        <Route path="*" element={<NotFound/>}/>
-      </Routes>
-    </BrowserRouter>
-    
+    <ShopProvider>
+      <BrowserRouter>
+        <NavBar />
+          <Routes>
+            <Route path="/" element={<ItemslistContainer/>}/>
+            <Route patch="/category/:categoryId" element={<ItemslistContainer/>}/>
+            <Route path="/detail/:productId" element={<ItemDetailistContainer/>}/>
+            <Route path="/cart" element={<Cart/>}/>
+            <Route path="*" element={<NotFound/>}/>
+          </Routes>
+      </BrowserRouter>
+    </ShopProvider>
   );
 }
 
